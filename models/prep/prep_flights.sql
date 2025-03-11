@@ -4,12 +4,12 @@ WITH flights_one_month AS (
 ),
 flights_cleaned AS(
     SELECT flight_date::DATE
-            ,TO CHAR(dep_time, 'fm0000')::TIME AS dep_time
-            ,TO CHAR(sched_dep_time, 'fm0000')::TIME AS sched_dep_time
+            ,TO_CHAR(dep_time, 'fm0000')::TIME AS dep_time
+            ,TO_CHAR(sched_dep_time, 'fm0000')::TIME AS sched_dep_time
             ,dep_delay
 		    ,(dep_delay * '1 minute'::INTERVAL) AS dep_delay_interval
-            ,TO CHAR(arr_time, 'fm0000')::TIME AS arr_time
-            ,TO CHAR(sched_arr_time, 'fm0000')::TIME AS sched_arr_time
+            ,TO_CHAR(arr_time, 'fm0000')::TIME AS arr_time
+            ,TO_CHAR(sched_arr_time, 'fm0000')::TIME AS sched_arr_time
             ,arr_delay
             (arr_delay * '1 minute'::INTERVAL) AS arr_delay_interval
             ,airline
